@@ -114,8 +114,7 @@ if (mysql_num_rows($ExeBuscarAgendaExibir)) {
                                             include 'pages/includes/switchesSalasAgenda.php';
                                             ?>
                                             <div class="col-md-12" style="<?php echo $Style . $Height . $Spacing ?>border-bottom:0.5px solid #ddd">
-                                                <?php echo lmWord($ResExibirAulasDia['nome_aluno'], 19) ?>
-                                                <?php echo $ResExibirAulasDia['entrada'] ?>
+                                                <?php echo lmWord($ResExibirAulasDia['nome_aluno'], 18) ?>
                                                 <a href="?acesso=Exibir_Evento&Id=<?php echo $ResExibirAulasDia['id'] ?>" title="<?php echo $ResExibirAulasDia['materia'] ?>">
                                                     <span class="glyphicon glyphicon-search"></span>
                                                 </a>

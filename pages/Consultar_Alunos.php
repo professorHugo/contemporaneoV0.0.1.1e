@@ -1,4 +1,5 @@
 <section class="col-md-11 col-md-push-1">
+    <h2>Consultar Alunos</h2>
     <form class="col-md-8" method="post" action="?acesso=Consultar_Alunos">
         <div class="form-group col-md-3">
             <input type="number" value="<?php
@@ -42,7 +43,7 @@
                             <td><?php echo $resBuscarAluno['matricula_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno"></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>"></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
                         <?php
@@ -72,28 +73,11 @@
                             <td><?php echo $resBuscarAluno['matricula_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno"></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
-                        <div class="modal fade" id="ModalDetalhesAluno" tabindex="-1" role="dialog" aria-labelledby="ModalDetalhesAluno">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Aluno <?php echo $resBuscarAluno['nome_aluno'] ?></h4>
-                                    </div>
-                                    <div class="modal-body">
-
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <?php
+                        include 'parts/extra/ModalDetalhesAluno.php';
                     }
                     ?>
                 </table>
@@ -119,28 +103,11 @@
                             <td><?php echo $resBuscarAluno['matricula_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno"></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
-                        <div class="modal fade" id="ModalDetalhesAluno" tabindex="-1" role="dialog" aria-labelledby="ModalDetalhesAluno">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Aluno <?php echo $resBuscarAluno['nome_aluno'] ?></h4>
-                                    </div>
-                                    <div class="modal-body">
-
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <?php
+                        include 'parts/extra/ModalDetalhesAluno.php';
                     }
                     ?>
                 </table>
@@ -167,29 +134,12 @@
                         <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                         <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
                         <td>
-                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno"></span>
+                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span>
                         </td>
                     </tr>
                     <!--Modal para consultar os dados do aluno -->
-                    <div class="modal fade" id="ModalDetalhesAluno" tabindex="-1" role="dialog" aria-labelledby="ModalDetalhesAluno">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Aluno <?php echo $resBuscarAluno['nome_aluno'] ?></h4>
-                                </div>
-                                <div class="modal-body">
-
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <?php
+                    include 'parts/extra/ModalDetalhesAluno.php';
                 }
                 ?>
             </table>

@@ -1,6 +1,13 @@
 <?php
+
 //Hora Entrada
-switch ($horarioEntrada) {
+switch ($resEventoId['entrada']) {
+    case '6.5':$horaEntrada = '6:30';
+        break;
+    case '7':$horaEntrada = '7:00';
+        break;
+    case '7.5':$horaEntrada = '7:30';
+        break;
     case '8':$horaEntrada = '8:00';
         break;
     case '8.5': $horaEntrada = '8:30';
@@ -60,7 +67,13 @@ switch ($horarioEntrada) {
 }
 
 //Hora Saida
-switch ($horarioSaida) {
+switch ($resEventoId['saida']) {
+    case '7': $horaSaida = '7:00';
+        break;
+    case '7.5': $horaSaida = '7:30';
+        break;
+    case '8': $horaSaida = '8:00';
+        break;
     case '8.5': $horaSaida = '8:30';
         break;
     case '9': $horaSaida = '9:00';
