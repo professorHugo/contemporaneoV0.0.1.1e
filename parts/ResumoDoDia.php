@@ -6,9 +6,18 @@
                 <?php
                 $DiaHoje = date('Y-m-d');
                 $ExeQrBuscarAulasHoje = mysql_query("SELECT * FROM agenda_aulas WHERE data = '$DiaHoje'");
+                if (mysql_num_rows($ExeQrBuscarAulasHoje) > 0) {
+                    ?>
+                    <h3><?php echo mysql_num_rows($ExeQrBuscarAulasHoje) ?></h3>
+                    <p>Aulas Hoje</p>
+                    <?php
+                } else {
+                    ?>
+                    <h3>0</h3>
+                    <p>Aulas Hoje</p>
+                    <?php
+                }
                 ?>
-                <h3><?php echo mysql_num_rows($ExeQrBuscarAulasHoje) ?></h3>
-                <p>Aulas Hoje</p>
             </div>
             <div class="icon">
                 <i class="glyphicon glyphicon-education"></i>

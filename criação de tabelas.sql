@@ -1,8 +1,7 @@
 /*Criar o banco de dados*/
 CREATE DATABASE contemporaneo DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
-/*EXCLUIR AS TABELAS E DB EXTRA*/
-DROP DATABASE n2yco43522_01_2017;
+/*EXCLUIR AS TABELAS EXTRA*/
 DROP TABLES 
 agenda_aulas, 
 alunos, 

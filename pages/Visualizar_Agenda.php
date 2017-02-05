@@ -75,13 +75,13 @@ if (mysql_num_rows($ExeBuscarAgendaExibir)) {
                         <h4 class="modal-title" id="myModalLabel">Agenda de aulas para o dia: <?php echo date("d/m/Y", strtotime($ResBuscarAgendaExibir['data'])) ?></h4>
                     </div>
                     <div class="modal-body">
-                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="padding:0">
-                            <h4>Horários</h4>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center" style="padding:0">
+                            <h4 style="font-size:16px">Entrada</h4>
                             <?php
                             $ExeSQLBuscarHorarios = mysql_query("SELECT * FROM sala1");
                             while ($ReturnHorarios = mysql_fetch_assoc($ExeSQLBuscarHorarios)) {
                                 ?>
-                                <div class="col-md-12" style="border:0.5px solid #ddd">
+                                <div class="col-md-12" style="border:0.5px solid #ddd;padding-left:5px;">
                                     <?php echo $ReturnHorarios['exibir_entrada'] ?>
                                 </div>
                                 <?php
@@ -94,7 +94,7 @@ if (mysql_num_rows($ExeBuscarAgendaExibir)) {
                                 $NomeSalaExibir = date("d_m_Y", strtotime($ResBuscarAgendaExibir['data'])) . "_sala" . $contSala;
                                 ?>
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-left:0;padding-right: 0;">
-                                    <h4 class="text-center">Sala <?php echo $contSala ?></h4>
+                                    <h4 class="text-center" style="border:0.1px solid #ddd">Sala <?php echo $contSala ?></h4>
                                     <?php
                                     $QueryAulasAgendadas = "SELECT * FROM agenda_aulas WHERE data = '$ResBuscarAgendaExibir[data]' AND sala = '$NomeSalaExibir' ORDER BY entrada";
                                     $ExeQrAulasAgendadas = mysql_query($QueryAulasAgendadas);
@@ -113,7 +113,7 @@ if (mysql_num_rows($ExeBuscarAgendaExibir)) {
                                              */
                                             include 'pages/includes/switchesSalasAgenda.php';
                                             ?>
-                                            <div class="col-md-12" style="<?php echo $Style . $Height . $Spacing ?>border-bottom:0.5px solid #ddd">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="<?php echo $Style . $Height . $Spacing ?>border:0.5px solid #ddd">
                                                 <?php echo lmWord($ResExibirAulasDia['nome_aluno'], 18) ?>
                                                 <a href="?acesso=Exibir_Evento&Id=<?php echo $ResExibirAulasDia['id'] ?>" title="<?php echo $ResExibirAulasDia['materia'] ?>">
                                                     <span class="glyphicon glyphicon-search"></span>

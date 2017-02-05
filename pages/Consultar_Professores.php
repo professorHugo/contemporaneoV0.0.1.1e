@@ -1,3 +1,54 @@
+<?php
+if (isset($_POST['AtualizarProfessor'])) {
+    $idProfessor = $_POST['IdProfessor'];
+    $nome_professor = $_POST['nome_professor'];
+    $materia = $_POST['materia_principal'];
+    $telefone_principal = $_POST['telefone_principal'];
+    $telefone_contato = $_POST['telefone_contato'];
+    $cep_endereco = $_POST['cep_endereco'];
+    $endereco_completo = $_POST['endereco_completo'];
+    $numero_endereco = $_POST['numero_endereco'];
+    $bairro_endereco = $_POST['bairro_endereco'];
+    $cidade_endereco = $_POST['cidade_endereco'];
+    $estado_endereco = $_POST['estado_endereco'];
+    $complemento_endereco = $_POST['complemento_endereco'];
+    $banco_professor = $_POST['banco_professor'];
+    $agencia_banco_professor = $_POST['agencia_banco_professor'];
+    $dig_agencia_banco_professor = $_POST['dig_agencia_banco_professor'];
+    $conta_banco_professor = $_POST['conta_banco_professor'];
+    $valor_hora = $_POST['valor_hora'];
+    $valor_hora_res = $_POST['valor_hora_res'];
+    $dia_pagamento = $_POST['dia_pagamento'];
+
+    $QueryUpdateDadosProfessor = "UPDATE professores SET nome = '$nome_professor',"
+        . "materia = '$materia',"
+        . "telefone_principal = '$telefone_principal',"
+        . "telefone_contato = '$telefone_contato',"
+        . "cep_endereco = '$cep_endereco',"
+        . "endereco_completo = '$endereco_completo',"
+        . "numero_endereco = '$numero_endereco',"
+        . "bairro_endereco = '$bairro_endereco',"
+        . "cidade_endereco = '$cidade_endereco',"
+        . "estado_endereco = '$estado_endereco',"
+        . "complemento_endereco = '$complemento_endereco',"
+        . "banco_professor = '$banco_professor',"
+        . "agencia_banco_professor = '$agencia_banco_professor',"
+        . "dig_agencia_banco_professor = '$dig_agencia_banco_professor',"
+        . "conta_banco_professor = '$conta_banco_professor',"
+        . "valor_hora = '$valor_hora',"
+        . "valor_hora_res = '$valor_hora_res',"
+        . "dia_pagamento = '$dia_pagamento' WHERE id = $idProfessor";
+    $ExeQrUpdateDadosProfessor = mysql_query($QueryUpdateDadosProfessor);
+
+    if ($ExeQrUpdateDadosProfessor) {
+        include_once 'parts/extra/ModalAlterarProfessorOK.php';
+    } else {
+        ?>
+        <script>alert("Deu ruim! <?php echo mysql_error() ?>")</script>
+        <?php
+    }
+}
+?>
 <section class="col-md-12">
     <h2>Consultar Professores</h2>
     <form class="col-md-8" method="post" action="?acesso=Consultar_Professores">
@@ -41,7 +92,7 @@
                         <td><?php echo $resBuscarProfessor['id'] ?></td>
                         <td><?php echo $resBuscarProfessor['nome'] ?></td>
                         <td><?php echo $resBuscarProfessor['materia'] ?></td>
-                        <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor"></span></td>
+                        <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor<?php echo $resBuscarProfessor['id'] ?>"></span></td>
                     </tr>
                     <!--Modal para consultar os dados do aluno -->
                     <?php
@@ -69,7 +120,7 @@
                             <td><?php echo $resBuscarProfessor['id'] ?></td>
                             <td><?php echo $resBuscarProfessor['nome'] ?></td>
                             <td><?php echo $resBuscarProfessor['materia'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor"></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor<?php echo $resBuscarProfessor['id'] ?>"></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
                         <?php
@@ -98,7 +149,7 @@
                             <td><?php echo $resBuscarProfessor['nome'] ?></td>
                             <td><?php echo $resBuscarProfessor['materia'] ?></td>
                             <td>
-                                <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor"></span>
+                                <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor<?php echo $resBuscarProfessor['id'] ?>"></span>
                             </td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
@@ -129,29 +180,11 @@
                         <td><?php echo $resBuscarProfessor['nome'] ?></td>
                         <td><?php echo $resBuscarProfessor['materia'] ?></td>
                         <td>
-                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor"></span>
+                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesProfessor<?php echo $resBuscarProfessor['id'] ?>"></span>
                         </td>
                     </tr>
-                    <!--Modal para consultar os dados do aluno -->
-                    <div class="modal fade" id="ModalDetalhesProfessor" tabindex="-1" role="dialog" aria-labelledby="ModalDetalhesAluno">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Aluno <?php echo $resBuscarProfessor['nome'] ?></h4>
-                                </div>
-                                <div class="modal-body">
-
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <?php
+                    include 'parts/extra/ModalDetalhesProfessor.php';
                 }
                 ?>
             </table>

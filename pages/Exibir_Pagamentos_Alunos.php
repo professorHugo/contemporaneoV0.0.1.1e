@@ -84,10 +84,37 @@ if (isset($_POST['SalvarPagamentos'])) {
                                 <td><?php echo $ReturnPagamentos[entrada] ?></td>
                                 <td><?php echo $ReturnPagamentos[qtd_hora] ?></td>
                                 <td><?php echo $ReturnPagamentos[valor] ?></td>
-                                <td><?php echo $ReturnPagamentos[pagamento] ?></td>
+                                <td>
+                                    <?php
+                                    if ($ReturnPagamentos[pagamento] == "nao") {
+                                        ?>
+                                        <button type="button" name="alterar_pagamento" id="alterar_pagamento" data-toggle="modal" data-target="#AlterarPagamento<?php echo $ReturnPagamentos[matricula] ?>" class="btn-adn" title="Alterar">
+                                            <span class="glyphicon glyphicon-transfer"></span>
+                                        </button>
+                                        <button type="button" id="alterar_pagamento" data-toggle="modal" data-target="#GerarCobranca<?php echo $ReturnPagamentos[matricula] ?>" class="btn-warning" title="Gerar Cobrança">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </button>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#EnviarComprovante<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-success" title = "Enviar Comprovante">
+                                            <span class = "glyphicon glyphicon-envelope"></span>
+                                        </button>
+                                        <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#VisualizarStatus<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-info" title = "Ver Detalhes">
+                                            <span class = "glyphicon glyphicon-eye-open"></span>
+                                        </button>
+                                        <?php
+                                    }
+                                    ?>
+
+                                </td>
                                 <td><?php echo $ReturnPagamentos[desconto] ?></td>
                             </tr>
                             <?php
+                            include 'parts/extra/ModalAlterarPagamento.php';
+                            include 'parts/extra/ModalGerarCobranca.php';
+                            include 'parts/extra/ModalEnviarComprovante.php';
+                            include 'parts/extra/ModalVisualizarStatus.php';
                         }
                     } else {
                         ?>
@@ -99,7 +126,7 @@ if (isset($_POST['SalvarPagamentos'])) {
                     }
                 } else if (isset($_POST['nome_responsavel_pagamento'])) {
                     $BuscarPagamentos = $_POST['nome_responsavel_pagamento'];
-                    $ExeQrBuscarPagamentos = mysql_query("SELECT * FROM agenda_aulas WHERE matricula_aluno = $BuscarPagamentos");
+                    $ExeQrBuscarPagamentos = mysql_query("SELECT * FROM agenda_aulas WHERE responsavel_pagamento = $BuscarPagamentos");
                     if (mysql_num_rows($ExeQrBuscarPagamentos) > 0) {
                         while ($ResBuscarPagamentos = mysql_fetch_assoc($ExeQrBuscarPagamentos)) {
                             $ReturnPagamentos[matricula] = $ResBuscarPagamentos['matricula_aluno'];
@@ -122,10 +149,37 @@ if (isset($_POST['SalvarPagamentos'])) {
                                 <td><?php echo $ReturnPagamentos[entrada] ?></td>
                                 <td><?php echo $ReturnPagamentos[qtd_hora] ?></td>
                                 <td><?php echo $ReturnPagamentos[valor] ?></td>
-                                <td><?php echo $ReturnPagamentos[pagamento] ?></td>
+                                <td>
+                                    <?php
+                                    if ($ReturnPagamentos[pagamento] == "nao") {
+                                        ?>
+                                        <button type="button" name="alterar_pagamento" id="alterar_pagamento" data-toggle="modal" data-target="#AlterarPagamento<?php echo $ReturnPagamentos[matricula] ?>" class="btn-adn" title="Alterar">
+                                            <span class="glyphicon glyphicon-transfer"></span>
+                                        </button>
+                                        <button type="button" id="alterar_pagamento" data-toggle="modal" data-target="#GerarCobranca<?php echo $ReturnPagamentos[matricula] ?>" class="btn-warning" title="Gerar Cobrança">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </button>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#EnviarComprovante<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-success" title = "Enviar Comprovante">
+                                            <span class = "glyphicon glyphicon-envelope"></span>
+                                        </button>
+                                        <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#VisualizarStatus<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-info" title = "Ver Detalhes">
+                                            <span class = "glyphicon glyphicon-eye-open"></span>
+                                        </button>
+                                        <?php
+                                    }
+                                    ?>
+
+                                </td>
                                 <td><?php echo $ReturnPagamentos[desconto] ?></td>
                             </tr>
                             <?php
+                            include 'parts/extra/ModalAlterarPagamento.php';
+                            include 'parts/extra/ModalGerarCobranca.php';
+                            include 'parts/extra/ModalEnviarComprovante.php';
+                            include 'parts/extra/ModalVisualizarStatus.php';
                         }
                     } else {
                         echo '<script>alert("Nome do Responsável pelo pagamento não encontrado!")</script>';
@@ -162,16 +216,16 @@ if (isset($_POST['SalvarPagamentos'])) {
                                 <button type="button" name="alterar_pagamento" id="alterar_pagamento" data-toggle="modal" data-target="#AlterarPagamento<?php echo $ReturnPagamentos[matricula] ?>" class="btn-adn" title="Alterar">
                                     <span class="glyphicon glyphicon-transfer"></span>
                                 </button>
-                                <button type="button" id="alterar_pagamento" data-toggle="modal" data-target="#GerarCobranca<?php echo $ReturnPagamentos[matricula] ?>" class="btn-adn" title="Gerar Cobrança">
+                                <button type="button" id="alterar_pagamento" data-toggle="modal" data-target="#GerarCobranca<?php echo $ReturnPagamentos[matricula] ?>" class="btn-warning" title="Gerar Cobrança">
                                     <span class="glyphicon glyphicon-envelope"></span>
                                 </button>
                                 <?php
                             } else {
                                 ?>
-                                <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#EnviarComprovante<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-adn" title = "Enviar Comprovante">
+                                <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#EnviarComprovante<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-success" title = "Enviar Comprovante">
                                     <span class = "glyphicon glyphicon-envelope"></span>
                                 </button>
-                                <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#VisualizarStatus<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-adn" title = "Ver Detalhes">
+                                <button type = "button" name = "alterar_pagamento" id = "alterar_pagamento" data-toggle = "modal" data-target = "#VisualizarStatus<?php echo $ReturnPagamentos[matricula] ?>" class = "btn-info" title = "Ver Detalhes">
                                     <span class = "glyphicon glyphicon-eye-open"></span>
                                 </button>
                                 <?php

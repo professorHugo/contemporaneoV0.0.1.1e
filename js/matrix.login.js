@@ -1,6 +1,4 @@
-
-$(document).ready(function(){
-
+$(function(){
 	var login = $('#loginform');
 	var recover = $('#recoverform');
 	var speed = 400;
@@ -8,7 +6,7 @@ $(document).ready(function(){
 	$('#to-recover').click(function(){
 		
 		$("#loginform").slideUp();
-		$("#recoverform").fadeIn();
+		$("#recoverform").slideUp();
 	});
 	$('#to-login').click(function(){
 		

@@ -17,7 +17,24 @@ if (isset($_SESSION['Login'])) {
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE-Edge">
-            <title>Echo System v<?php echo $VersionSystem ?></title>
+            <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+            <link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+            <link rel="manifest" href="img/icons/manifest.json">
+            <meta name="msapplication-TileColor" content="#ffffff">
+            <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+            <meta name="theme-color" content="#ffffff">
+            <title>Echo System<?php echo $VersionSystem ?></title>
             <!-- CORE JQuery-->
             <script src="js/jquery.min.js"></script>
             <!--JQuery UI-->
@@ -53,7 +70,7 @@ if (isset($_SESSION['Login'])) {
         session_start();
 //    session_destroy();
         ?>
-        <body class="hold-transition skin-yellow sidebar-mini sidebar-collapse">
+        <body class="hold-transition skin-yellow sidebar-mini">
             <div class="wrapper">
                 <?php include'parts/pages/Header.php'; ?>
                 <!-- Left side column. contains the logo and sidebar -->
@@ -68,15 +85,15 @@ if (isset($_SESSION['Login'])) {
                         </h1>
                         <ol class="breadcrumb">
                             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                            <li class="active lead">
+                            <li class="active">
                                 <?php
                                 if (!isset($_GET['acesso'])) {
-                                    echo "Início";
+                                    echo '<span class="lead">Início</span>';
                                 } else {
                                     if ($_GET['acesso'] == "Home") {
-                                        echo 'Página Inicial';
+                                        echo '<span class="lead">Página Inicial</span>';
                                     } else {
-                                        echo str_replace('_', ' ', $_GET['acesso']);
+                                        echo '<span class="lead">'.str_replace('_', ' ', $_GET['acesso'])."</span>";
                                     }
                                 }
                                 ?>
@@ -112,7 +129,7 @@ if (isset($_SESSION['Login'])) {
                     <div class="pull-right hidden-xs">
                         <b>Version</b> <?php echo $VersionSystem ?>
                     </div>
-                    <strong>Copyright &copy; 2017-2018 <a href="http://n2y.com.br">Next 2 You</a>.</strong> All rights
+                    <strong>Copyright &copy; 2017-2018 <a href="http://n2y.com.br" target="new">Next 2 You</a>.</strong> All rights
                     reserved.
                 </footer>
 

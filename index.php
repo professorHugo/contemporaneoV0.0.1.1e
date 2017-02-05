@@ -16,7 +16,7 @@ if (isset($_SESSION['Login'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="">
         <meta name="description" content="">
-        <meta rel="icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="img/favicon.ico">
         <title>Contemporâneo<?php echo $VersionSystem ?></title>
         <!-- CORE JS ie10 viewport bug w8-->
         <script src="js/ie10-viewport-bug-workaround.js"></script>
@@ -26,6 +26,7 @@ if (isset($_SESSION['Login'])) {
         <![endif]-->
         <link rel="stylesheet" href="css/style-default.css">
         <script src="js/fotos/ajax.js"></script>
+        <script src="js/jquery.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ECHO'S</title>
@@ -101,7 +102,7 @@ if (isset($_SESSION['Login'])) {
                                 <?php
                                 if (isset($_SESSION['Login'])) {
                                     ?>
-                                    <img src="<?php echo $_SESSION['Login']['foto'] ?>" class="img-responsive img-circle" style="margin:100px auto">
+                                    <img src="<?php echo $_SESSION['Login']['foto'] ?>" class="img-responsive img-circle" style="margin:50px auto">
                                     <?php
                                 } else {
                                     ?>
@@ -129,7 +130,7 @@ if (isset($_SESSION['Login'])) {
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-actions">
-                            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Perdeu a senha?</a></span>
+                            <button type="button" class="flip-link btn btn-info" id="to-recover">Perdeu a senha?</button>
                             <span class="pull-right"><button type="submit" class="btn btn-success" name="Login" /> Login</a></span>
                         </div>
                     </form>

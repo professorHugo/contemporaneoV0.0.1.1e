@@ -29,7 +29,7 @@
             $ExeQrBuscarAluno = mysql_query($QueryBuscarAluno);
             if (mysql_num_rows($ExeQrBuscarAluno) > 0) {
                 ?>
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <tr>
                         <td>Matrícula</td>
                         <td>Nome</td>
@@ -59,7 +59,7 @@
             $ExeQrBuscarAluno = mysql_query($QueryBuscarAluno);
             if (mysql_num_rows($ExeQrBuscarAluno) > 0) {
                 ?>
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <tr>
                         <td>Matrícula</td>
                         <td>Nome</td>
@@ -73,7 +73,7 @@
                             <td><?php echo $resBuscarAluno['matricula_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>"></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
                         <?php
@@ -89,7 +89,7 @@
             $ExeQrBuscarAluno = mysql_query($QueryBuscarAluno);
             if (mysql_num_rows($ExeQrBuscarAluno) > 0) {
                 ?>
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <tr>
                         <td>Matrícula</td>
                         <td>Nome</td>
@@ -103,7 +103,7 @@
                             <td><?php echo $resBuscarAluno['matricula_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                             <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
-                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span></td>
+                            <td><span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>"></span></td>
                         </tr>
                         <!--Modal para consultar os dados do aluno -->
                         <?php
@@ -119,7 +119,7 @@
         $ExeQrBuscarAluno = mysql_query($QueryBuscarAluno);
         if (mysql_num_rows($ExeQrBuscarAluno) > 0) {
             ?>
-            <table class="table table-striped table-responsive">
+            <table class="table table-striped table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <tr>
                     <td>Matrícula</td>
                     <td>Nome</td>
@@ -134,7 +134,7 @@
                         <td><?php echo $resBuscarAluno['nome_aluno'] ?></td>
                         <td><?php echo $resBuscarAluno['telefone_aluno'] ?></td>
                         <td>
-                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>""></span>
+                            <span class="glyphicon glyphicon-search btn" data-toggle="modal" data-target="#ModalDetalhesAluno<?php echo $resBuscarAluno['matricula_aluno'] ?>"></span>
                         </td>
                     </tr>
                     <!--Modal para consultar os dados do aluno -->

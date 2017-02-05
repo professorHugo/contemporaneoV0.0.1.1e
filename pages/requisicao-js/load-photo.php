@@ -12,7 +12,7 @@ if (isset($_GET['Load'])) {
         while ($ResultadoFoto = mysql_fetch_assoc($resultBuscarFoto)) {
             $fotoReturn = $ResultadoFoto['foto'];
             ?>
-            <img src="<?php echo $fotoReturn ?>" class="img-responsive img-circle" style="margin:100px auto">
+            <img src="<?php echo $fotoReturn ?>" class="img-responsive img-circle" style="margin:100px auto 0 auto">
             <?php
         }
     } else {

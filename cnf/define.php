@@ -19,4 +19,13 @@ define("USUARIO_DB","n2yco435");
  
 $conexao = mysql_connect(HOST, USER, PASS) or die (mysql_error);
 mysql_select_db(DDB, $conexao) or die (mysql_error);
-/**/
+/*
+define("HOST","mysql.hostinger.com.br");
+define("USER","u347464622_root");
+define("PASS","csdl13231010");
+define("DDB","u347464622_echos");
+define("USUARIO_DB","n2yco435");
+ 
+$conexao = mysql_connect(HOST, USER, PASS) or die (mysql_error);
+mysql_select_db(DDB, $conexao) or die (mysql_error);
+ /**/
