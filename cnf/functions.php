@@ -52,3 +52,21 @@ function lmWord($string, $words = '20') {
         return substr($string, 0, $strpos);
     }
 }
+
+/* * ***************************
+  Exibir Valor em formato PT-BR
+ * *************************** */
+
+function trata_preco($str) // recebe preços como "21", "21.5" ou "21.51", de dados FLOAT vindos do BD, por exemplo
+{
+    $return = $str;
+    if(strpos($str,".") === false)  // Preços "inteiros", sem centavos, por exemplo: "21"
+        $return .= ",00";
+    else
+    {
+        if(strlen(substr($str,strpos($str, "."),strlen($str)-strpos($str, "."))) == 2) // Preços que contém dezenas de centavos inteira, por exemplo: "21.5", adiciona o "0" no final
+            $return .= "0";
+        $return = str_replace(".",",",$return); // Após o IF acima todos os tipos de preço ficam da seguinte forma: XXXXXX.XX, por ex.: "21.50". Aí só substitui o "." pela ","
+    }
+    return $return;
+}

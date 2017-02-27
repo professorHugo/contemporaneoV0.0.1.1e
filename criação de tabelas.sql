@@ -65,7 +65,7 @@ CREATE TABLE agenda_aulas (
  matricula_aluno int(11) DEFAULT NULL,
  nome_aluno varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
  responsavel_pagamento varchar(255) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
- descricao_aula varchar(5000) DEFAULT NULL,
+ descricao_aula varchar(5000) COLLATE utf8_general_mysql500_ci DEFAULT NULL,
  data varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
  sala varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
  prof varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
@@ -75,6 +75,7 @@ CREATE TABLE agenda_aulas (
  qtd_hora float NOT NULL,
  valor float NOT NULL,
  pagamento varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ comprovante_pagamento int(11) NULL,
  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 /*Fim Tabema de Agendamento de aulas*/
@@ -244,7 +245,12 @@ CREATE TABLE usuarios (
  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 /*Registro do usuário Master*/
-INSERT INTO usuarios(id,nome,usuario,usuario_md5,senha,senha_md5,departamento,level_acesso,foto) VALUES(1,'Administrador do Sistema','master','eb0a191797624dd3a48fa681d3061212','master','eb0a191797624dd3a48fa681d3061212','Adm Sis',0,'img/fotos/admin.png');
+INSERT INTO usuarios(id,nome,usuario,usuario_md5,senha,senha_md5,departamento,level_acesso,foto) 
+VALUES
+(1,'Administrador do Sistema','master','eb0a191797624dd3a48fa681d3061212','master','eb0a191797624dd3a48fa681d3061212','Adm Sis',0,'img/fotos/admin.png'),
+(2, 'Juliana', 'juliana', '49339465c068fb48e796b4e68bdd35d5', 'juliana', '49339465c068fb48e796b4e68bdd35d5', 'Teste de uso', 0, 'img/fotos/admin.png'),
+(3, 'Yoshio', 'yoshio', '7126e2f70dda04b4eda2ffaa89fab996', 'yoshio', '7126e2f70dda04b4eda2ffaa89fab996', 'Teste de Uso', 0, 'img/fotos/admin.png');
+
 /*Fim da tabela de usuários*/
 
 
@@ -294,15 +300,19 @@ CREATE TABLE escolaridade_yoshio(
 	/*Fim tabela escolaridade_yoshio*/
 /*Fim TABELA Yoshio*/
 /*Tabela de Pagamentos */
-CREATE TABLE pagamentos_efetuados(
-	id int(11) not null primary key auto_increment,
-	matricula varchar(255) not null,
-	nome_aluno varchar(255) not null,
-	valor_pagamento varchar(255) not null,
-	forma_pagamento varchar(255) not null,
-	comprovante_pagamento varchar(255) not null,
-	data_confirmacao varchar(255) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+CREATE TABLE pagamentos_efetuados (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ id_agendamento int(11) NOT NULL,
+ matricula varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ nome_aluno varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ valor_pagamento float NOT NULL,
+ forma_pagamento varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ comprovante_pagamento varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ data_confirmacao_dia varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ data_confirmacao_mes varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ data_confirmacao_ano varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci
 /*Fim tabela de Pagamentos*/
 /*Tabela de salas update
 CREATE TABLE sala1 (id int(11) NOT NULL PRIMARY KEY, entrada float, saida float, status int(11) NOT NULL DEFAULT '0', materia varchar(255)NULL, professor varchar(255) NULL, exibir_entrada varchar(255), exibir_saida varchar(255), compartilhada int NULL, aluno id(11) NULL DEFAULT 0 FOREIGN KEY (aluno) references alunos(matricula_aluno))ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci

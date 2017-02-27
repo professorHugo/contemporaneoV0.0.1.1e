@@ -17,7 +17,7 @@ if (isset($_SESSION['Login'])) {
         <meta name="author" content="">
         <meta name="description" content="">
         <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Contemporâneo<?php echo $VersionSystem ?></title>
+        <title>Contemporâneo<?php echo VERSION_SYSTEM ?></title>
         <!-- CORE JS ie10 viewport bug w8-->
         <script src="js/ie10-viewport-bug-workaround.js"></script>
         <!--[if lt IE 9]>
@@ -35,8 +35,9 @@ if (isset($_SESSION['Login'])) {
         <link rel="stylesheet" href="css/login.css" />
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
     </head>
-    <body>
+    <body onload="goFocus('usuario')">
         <?php
         if (isset($_GET['Login'])) {
             /**
@@ -80,6 +81,9 @@ if (isset($_SESSION['Login'])) {
                          */
                         #Criar a Sessão do usuário
                         $_SESSION['Login'] = $usuarioEncontrado;
+                        $_SESSION['START'] = time(); //Hora de Inicio da Sessão
+                        $_SESSION['EXPIRE'] = $_SESSION['START'] + (60 * 60); //Finaliza a sessão depois de um 1 hora
+                        $_SESSION['ENTRADA_NOW'] = date('H:i:s');
                         ?>
                         <meta http-equiv="refresh" content="0;index.php">
                         <?php
@@ -151,6 +155,11 @@ if (isset($_SESSION['Login'])) {
                 </div>
             </section>
             <script src="js/matrix.login.js"></script>
+            <script>
+                                            function goFocus(elementID) {
+                                                document.getElementById(elementID).focus();
+                                            }
+            </script>
         </body>
     </html>
     <?php

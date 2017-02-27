@@ -9,7 +9,7 @@ if (isset($_POST['enviar'])) {
             <div class="modal-content">
                 <div class="modal-header">
                     <a href="?acesso=Home" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-                    <h4 class="modal-title" id="myModalLabel">Registrando a aula solicitada!</h4>
+                    <h3 class="modal-title" id="myModalLabel">Registrando a aula solicitada!</h3>
                 </div>
                 <div class="modal-body">
 
@@ -50,56 +50,79 @@ if (isset($_POST['enviar'])) {
                     $materiaAula = $_POST['materia'];
                     $pagamentoAula = $_POST['pagamento'];
                     $compartilharAula = $_POST['compartilhar_aula'];
-
-                    //Pré Cadastro do aluno
-                    $ExeQrConsultarAlunos = mysql_query("SELECT * FROM alunos WHERE matricula_aluno = '$matricula'");
-                    if (mysql_num_rows($ExeQrConsultarAlunos) <= 0) {
-                        $cadastrarAluno = mysql_query("INSERT INTO alunos (matricula_aluno,nome_aluno,escolaridade_aluno,telefone_aluno) VALUES ('$matricula','$nomeAluno','$escolaridadeAluno','$telefoneAluno')")or die(mysql_error());
-                        ?>
-                        <p>O aluno <b><?php echo $nomeAluno ?></b> agora tem um pré-cadastro com o registro: <b><?php echo $matricula ?></b>.
-                        <p>Lembre de atualizar o cadastro no dia da aula!</p>
-                        <?php
-                    } else {
-                        ?>
-                        <p>O aluno: <b><?php echo $nomeAluno ?></b> já tem cadastro, verifique se está atualizado!</p>
-                        <?php
-                    }
                     ?>
-                    <h4>Iniciando o processo de inclusão da aula no banco de dados...</h4>
-                    <?php
-                    echo "Valor da Aula: $valorDaAula <br>";
-                    echo "Escolaridade: $escolaridadeAluno <br>";
-                    echo "Responsável pelo pagamento: $respPagamento <br>";
-                    echo "Descrição: $descricaoAula <br>";
-                    //Agenda por dia, estudar uma forma neste abaixo, criar uma tabela com o dia para armazenar os agendamentos
-                    include_once 'pages/extra/criacao_tabelas_data.php';
-
-                    $conexao = mysql_connect(HOST, USER, PASS);
-                    $mysql_connect = mysql_select_db(DDB, $conexao);
-
-                    $cadastrar = mysql_query("INSERT INTO agenda_aulas(id, matricula_aluno, nome_aluno, responsavel_pagamento, descricao_aula, data, sala, prof, entrada, saida, materia, qtd_hora, valor, pagamento) VALUES (NULL, '$matricula', '$nomeAluno', '$respPagamento', '$descricaoAula', '$dataAula', '$salaDeAula', '$professor', '$horarioEntrada', '$horarioSaida', '$materiaAula', '$tempoDeAula', '$valorDaAula', '$pagamentoAula')");
-                    $AgendarData = date('d_m_Y', strtotime($dataAula));
-                    echo $QueryCadastrarData = "INSERT INTO $AgendarData(id, matricula_aluno, nome_aluno, responsavel_pagamento, descricao_aula, data, sala, prof, entrada, saida, materia, qtd_hora, valor, pagamento) VALUES (NULL, '$matricula', '$nomeAluno', '$respPagamento', '$descricaoAula', '$dataAula', '$salaDeAula', '$professor', '$horarioEntrada', '$horarioSaida', '$materiaAula', '$tempoDeAula', '$valorDaAula', '$pagamentoAula')";
-                    $CadastrarDia = mysql_query($QueryCadastrarData);
-                    if ($CadastrarDia) {
-                        echo "Cadastrado no dia";
-                    } else {
-                        echo "Erro: " . mysql_error();
-                    }
-
-
-                    if ($cadastrar) {
-                        ?>
-                        <p>Registro da aula de <b><?php echo $materiaAula ?></b> para o dia <b><?php echo date('d-m-Y', strtotime($dataAula)) ?></b> adicionado com sucesso!</p>
+                    <div class="col-md-12" id="ExibirResumoAgendamento">
+                        <h3 class="text-center">Iniciando o processo de inclusão da aula no banco de dados...</h3>
+                        <hr>
                         <?php
-                    } else {
-                        //Esse script dará um alerta de que não foi inserido com sucesso e chamará a página de cadastro novamente
+                        //Pré Cadastro do aluno
+                        $ExeQrConsultarAlunos = mysql_query("SELECT * FROM alunos WHERE matricula_aluno = '$matricula'");
+                        if (mysql_num_rows($ExeQrConsultarAlunos) <= 0) {
+                            $cadastrarAluno = mysql_query("INSERT INTO alunos (matricula_aluno,nome_aluno,escolaridade_aluno,telefone_aluno) VALUES ('$matricula','$nomeAluno','$escolaridadeAluno','$telefoneAluno')")or die(mysql_error());
+                            ?>
+                            <div class="col-md-12 text-center">
+                                <p>O aluno <b><?php echo $nomeAluno ?></b> agora tem um pré-cadastro com o registro: <b><?php echo $matricula ?></b>.
+                                <p>Lembre de atualizar o cadastro no dia da aula!</p>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="col-md-12 text-center">
+                                <p class="lead" style="font-size: 16px;">O aluno: <b><?php echo $nomeAluno ?></b> já tem cadastro, verifique se está atualizado!</p>
+                            </div>
+                            <?php
+                        }
                         ?>
-                        <p>Ocorreu um erro durante a inserção no banco de dados! Contate o administrador do sistema e informe o erro: <?php echo mysql_error(); ?></p>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-4">
+                                <label>Valor da Aula: </label>
+                                <input type="text" value="R$ <?php echo $valorDaAula ?>" class="form-control" disabled>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Escolaridade: </label>
+                                <input type="text" value="<?php echo $escolaridadeAluno ?>" class="form-control" disabled>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Responsável pelo pagamento: </label>
+                                <input type="text" value="<?php echo $respPagamento ?>" class="form-control" disabled>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Descrição: </label>
+                                <textarea class="form-control" disabled><?php echo $descricaoAula ?></textarea>
+                            </div>
+                        </div>
                         <?php
-                    }
-                    ?>
+                        //Agenda por dia, estudar uma forma neste abaixo, criar uma tabela com o dia para armazenar os agendamentos
+                        include_once 'pages/extra/criacao_tabelas_data.php';
 
+                        $conexao = mysql_connect(HOST, USER, PASS);
+                        $mysql_connect = mysql_select_db(DDB, $conexao);
+
+                        $cadastrar = mysql_query("INSERT INTO agenda_aulas(id, matricula_aluno, nome_aluno, responsavel_pagamento, descricao_aula, data, sala, prof, entrada, saida, materia, qtd_hora, valor, pagamento, comprovante_pagamento) VALUES (NULL, '$matricula', '$nomeAluno', '$respPagamento', '$descricaoAula', '$dataAula', '$salaDeAula', '$professor', '$horarioEntrada', '$horarioSaida', '$materiaAula', '$tempoDeAula', '$valorDaAula', '$pagamentoAula',NULL)");
+                        $AgendarData = date('d_m_Y', strtotime($dataAula));
+                        $QueryCadastrarData = "INSERT INTO $AgendarData(id, matricula_aluno, nome_aluno, responsavel_pagamento, descricao_aula, data, sala, prof, entrada, saida, materia, qtd_hora, valor, pagamento) VALUES (NULL, '$matricula', '$nomeAluno', '$respPagamento', '$descricaoAula', '$dataAula', '$salaDeAula', '$professor', '$horarioEntrada', '$horarioSaida', '$materiaAula', '$tempoDeAula', '$valorDaAula', '$pagamentoAula')";
+                        $CadastrarDia = mysql_query($QueryCadastrarData);
+                        if (!$CadastrarDia) {
+                            echo "Erro: " . mysql_error();
+                        }
+                        ?>
+                        <div class="col-md-12">
+                            <?php
+                            if ($cadastrar) {
+                                ?>
+                                <h4>Resumo: </h4>
+                                <p class="lead">Registro da aula de <b><?php echo $materiaAula ?></b> para o dia <b><?php echo date('d-m-Y', strtotime($dataAula)) ?></b> adicionado com sucesso!</p>
+                                <?php
+                            } else {
+                                //Esse script dará um alerta de que não foi inserido com sucesso e chamará a página de cadastro novamente
+                                ?>
+                                <h4>Resumo: </h4>
+                                <p class="lead">Ocorreu um erro durante a inserção no banco de dados! Contate o administrador do sistema e informe o erro: <?php echo mysql_error(); ?></p>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="modal-footer">

@@ -74,22 +74,24 @@
             -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-share"></i> <span>Financeiro</span>
+                    <i class="glyphicon glyphicon-usd"></i> <span>Financeiro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="?acesso=Exibir_Pagamentos_Alunos"><i class="fa fa-circle-o"></i> Alunos
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                        <a href="?acesso=Exibir_Pagamentos_Alunos">
+                            <i class="fa fa-user"></i> Alunos
                         </a>
-                        <a href="?acesso=Exibir_Pagamentos_Professores"><i class="fa fa-circle-o"></i> Professores
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                        <a href="?acesso=Exibir_Pagamentos_Professores">
+                            <i class="glyphicon glyphicon-education"></i> Professores
+                        </a>
+                        <a href="?acesso=Exibir_Caixa">
+                            <i class="glyphicon glyphicon-briefcase"></i> Caixa
+                        </a>
+                        <a href="?acesso=Despesas">
+                            <i class="glyphicon glyphicon-usd"></i> Despesas
                         </a>
                         
                     </li>
@@ -97,19 +99,19 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="glyphicon glyphicon-adjust"></i> <span>Configurações </span>
+                    <i class="glyphicon glyphicon-wrench"></i> <span>Configurações </span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="?acesso=Configuracoes_Precos"><i class="fa fa-circle-o"></i> Valores das Aulas
+                        <a href="?acesso=Configuracoes_Precos"><i class="glyphicon glyphicon-usd"></i> Valores das Aulas
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
-                        <a href="?acesso=Cadastrar_Disciplinas"><i class="fa fa-circle-o"></i> Disciplinas
+                        <a href="?acesso=Cadastrar_Disciplinas"><i class="glyphicon glyphicon-list-alt"></i> Disciplinas
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>

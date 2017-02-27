@@ -25,75 +25,75 @@
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
                         <li>
-                            <!-- inner menu: contains the actual data  >
-                            <ul class="menu">
-                                <li><!-- start message   >
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                        </div>
-                                        <h4>
-                                            Support Team
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <!-- end message  >
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                        </div>
-                                        <h4>
-                                            AdminLTE Design Team
-                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                        </div>
-                                        <h4>
-                                            Developers
-                                            <small><i class="fa fa-clock-o"></i> Today</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                        </div>
-                                        <h4>
-                                            Sales Department
-                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                        </div>
-                                        <h4>
-                                            Reviewers
-                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
-                    </ul>
+                <!-- inner menu: contains the actual data  >
+                <ul class="menu">
+                    <li><!-- start message   >
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            </div>
+                            <h4>
+                                Support Team
+                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                    </li>
+                <!-- end message  >
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
                 </li>
-                
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pull-left">
+                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="footer"><a href="#">See All Messages</a></li>
+    </ul>
+</li>
+
                 <!-- Notifications: style can be found in dropdown.less   >
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -103,44 +103,50 @@
                     <ul class="dropdown-menu">
                         <li class="header">You have 10 notifications</li>
                         <li>
-                            <!-- inner menu: contains the actual data   >
-                            <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                                        page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-red"></i> 5 new members joined
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-red"></i> You changed your username
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
-                </li>
+                <!-- inner menu: contains the actual data   >
+                <ul class="menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                            page and may cause design problems
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user text-red"></i> You changed your username
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="footer"><a href="#">View all</a></li>
+        </ul>
+    </li>
                 <!-- Tasks: style can be found in dropdown.less  -->
                 <li class="tasks-menu">
                     <a href="#">
-                        <i class="glyphicon glyphicon-time"></i>
-                        <span class="label label-danger">9</span>
+                        <i class="glyphicon glyphicon-time"></i> Sua Sessão dura até: 
+                            <?php
+                                $tempoSessaoInicio = $_SESSION['ENTRADA_NOW'];
+                                $tempoSessaoAtual = date('H:i:s');
+                                $SobraSessao = (strtotime($tempoSessaoAtual) - strtotime($tempoSessaoAtual));
+                                
+                                echo date('H:i:s',$SobraSessao);
+                            ?>
                     </a>
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
@@ -201,16 +207,16 @@
                 <div class="modal-body">
                     <div class="form-group col-md-3">
                         <label for="NomeUsuario">Nome do Usuário: </label>
-                        <input type="text" class="form-control" disabled name="NomeUsuario" id="NomeUsuario" value="<?php echo $_SESSION[Login][nome]?>">
-                        <input type="hidden" name="IdUsuario" id="NomeUsuario" value="<?php echo $_SESSION[Login][id]?>">
+                        <input type="text" class="form-control" disabled name="NomeUsuario" id="NomeUsuario" value="<?php echo $_SESSION[Login][nome] ?>">
+                        <input type="hidden" name="IdUsuario" id="NomeUsuario" value="<?php echo $_SESSION[Login][id] ?>">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="NivelAcesso">Nivel de Acesso: </label>
-                        <input type="text" class="form-control" disabled name="NivelAcesso" id="NivelAcesso" value="<?php echo $_SESSION[Login][level_acesso]?>">
+                        <input type="text" class="form-control" disabled name="NivelAcesso" id="NivelAcesso" value="<?php echo $_SESSION[Login][level_acesso] ?>">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="SenhaAcesso">Senha de Acesso: </label>
-                        <input type="password" class="form-control" name="SenhaAcesso" id="SenhaAcesso" value="<?php echo $_SESSION[Login][senha]?>">
+                        <input type="password" class="form-control" name="SenhaAcesso" id="SenhaAcesso" value="<?php echo $_SESSION[Login][senha] ?>">
                     </div>
                 </div>
                 <div class="clearfix"></div>
